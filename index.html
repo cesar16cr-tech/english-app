@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My English Practice</title>
+
+  <!-- Conectar el CSS -->
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Manifest para PWA -->
+  <link rel="manifest" href="manifest.json">
+</head>
+<body>
+
+  <div class="app">
+    <h1>My English Practice</h1>
+
+    <p class="subtitle">
+      Aprende a usar el inglés,<br>
+      no solo a memorizarlo.
+    </p>
+
+    <button id="startBtn">▶ Empezar</button>
+
+    <div class="info">
+      <p>Nivel actual: <span id="level">Nivel 1</span></p>
+      <p>Puntos: ⭐ <span id="points">0</span></p>
+    </div>
+
+    <!-- Zona del ejercicio (inicia oculta) -->
+    <div id="exercise" style="display:none; margin-top:20px;">
+      <h2>Tema 1: Preséntate</h2>
+      <p>Ordena la frase correctamente:</p>
+
+      <div class="words">
+        <button class="word">my</button>
+        <button class="word">name</button>
+        <button class="word">is</button>
+        <button class="word">Carlos</button>
+      </div>
+
+      <p>Tu respuesta:</p>
+      <div id="answer" class="answer"></div>
+
+      <!-- Botón para revisar -->
+      <button id="checkBtn">✔ Revisar</button>
+      <p id="feedback"></p>
+
+      <!-- Botones ocultos -->
+      <button id="nextBtn" style="margin-top:10px; display:none;">Siguiente</button>
+      <button id="retryBtn" style="margin-top:10px; display:none;">Reintentar</button>
+    </div>
+  </div>
+
+  <!-- Conectar el JavaScript -->
+  <script src="app.js"></script>
+
+  <!-- Registrar Service Worker -->
+  <script>
+    if ("serviceWorker" in navigator) {
+      navigator.serviceWorker.register("service-worker.js");
+    }
+  </script>
+</body>
+</html>
